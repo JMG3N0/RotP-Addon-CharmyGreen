@@ -1,7 +1,6 @@
 package com.rotpaddon.exampleaddon.init;
 
 import com.rotpaddon.exampleaddon.AddonMain;
-import com.rotpaddon.exampleaddon.entity.ExamplePickaxeEntity;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -15,8 +14,5 @@ public class InitEntities {
     
     
     
-    public static final RegistryObject<EntityType<ExamplePickaxeEntity>> EXAMPLE_PICKAXE = ENTITIES.register("example_pickaxe", 
-            () -> EntityType.Builder.<ExamplePickaxeEntity>of(ExamplePickaxeEntity::new, EntityClassification.MISC)
-            .sized(1.0F, 1.0F)
-            .build(AddonMain.MOD_ID + ":example_pickaxe"));
+
 };

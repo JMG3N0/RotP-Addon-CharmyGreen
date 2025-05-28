@@ -29,7 +29,7 @@ public class InitSounds {
     
     public static final Supplier<SoundEvent> EXAMPLE_STAND_PUNCH_BARRAGE = ModSounds.STAND_PUNCH_LIGHT;
     
-    public static final Supplier<SoundEvent> EXAMPLE_STAND_THROW_PICKAXE = ModSounds.STAND_PUNCH_LIGHT;
+
     
     public static final OstSoundList EXAMPLE_STAND_OST = new OstSoundList(
             new ResourceLocation(AddonMain.MOD_ID, "example_stand_ost"), SOUNDS);
