@@ -11,8 +11,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class InitEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(
             ForgeRegistries.ENTITIES, AddonMain.MOD_ID);
-    
-    
-    
+
+
+
 
 };

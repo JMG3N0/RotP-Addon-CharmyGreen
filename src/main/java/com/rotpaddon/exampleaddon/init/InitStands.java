@@ -28,7 +28,11 @@ public class InitStands {
             (Class<StandType<?>>) ((Class<?>) StandType.class), AddonMain.MOD_ID);
     
  // ======================================== Example Stand ========================================
-    
+
+
+
+
+
     
     // Create all the abilities here...
     public static final RegistryObject<StandEntityAction> CHARMY_GREEN_PUNCH = ACTIONS.register("charmy_green_punch",
@@ -39,7 +43,7 @@ public class InitStands {
             () -> new StandEntityMeleeBarrage(new StandEntityMeleeBarrage.Builder()
                     .barrageHitSound(InitSounds.EXAMPLE_STAND_PUNCH_BARRAGE)));
 
-    public static final RegistryObject<StandEntityHeavyAttack> EXAMPLE_STAND_FINISHER_PUNCH = ACTIONS.register("charmy_green_finisher",
+    public static final RegistryObject<StandEntityHeavyAttack> FINISHER_PUNCH = ACTIONS.register("charmy_green_finisher",
             () -> new StandEntityHeavyAttack(new StandEntityHeavyAttack.Builder() // TODO finisher ability
                     .punchSound(InitSounds.EXAMPLE_STAND_PUNCH_HEAVY)
                     .partsRequired(StandPart.ARMS)));
@@ -47,11 +51,11 @@ public class InitStands {
     public static final RegistryObject<StandEntityHeavyAttack> CHARMY_GREEN_HEAVY_PUNCH = ACTIONS.register("charmy_green_heavy_punch",
             () -> new StandEntityHeavyAttack(new StandEntityHeavyAttack.Builder()
                     .shiftVariationOf(CHARMY_GREEN_PUNCH).shiftVariationOf(URYA_BARRAGE)
-                    .setFinisherVariation(EXAMPLE_STAND_FINISHER_PUNCH)
+                    .setFinisherVariation(FINISHER_PUNCH)
                     .punchSound(InitSounds.EXAMPLE_STAND_PUNCH_HEAVY)
                     .partsRequired(StandPart.ARMS)));
     
-    public static final RegistryObject<StandEntityAction> EXAMPLE_STAND_BLOCK = ACTIONS.register("charmy_green_block",
+    public static final RegistryObject<StandEntityAction> CHARMY_GREEN_BLOCK = ACTIONS.register("charmy_green_block",
             () -> new StandEntityBlock());
     
 
@@ -62,7 +66,7 @@ public class InitStands {
     public static final EntityStandRegistryObject<EntityStandType<StandStats>, StandEntityType<CharmyGreenEntity>> CHARMY_GREEN_STAND =
             new EntityStandRegistryObject<>("charmy_green",
                     STANDS, 
-                    () -> new EntityStandType.Builder<StandStats>()
+                    () -> new EntityStandType.Builder<>()
                     .color(0x00AFAF)
                     .storyPartName(ModStandsInit.PART_3_NAME)
                     .leftClickHotbar(
@@ -70,7 +74,7 @@ public class InitStands {
                             URYA_BARRAGE.get()
                             )
                     .rightClickHotbar(
-                            EXAMPLE_STAND_BLOCK.get()
+                            CHARMY_GREEN_BLOCK.get()
                             )
                     .defaultStats(StandStats.class, new StandStats.Builder()
                             .tier(6)
@@ -85,7 +89,7 @@ public class InitStands {
                     .build(),
                     
                     InitEntities.ENTITIES,
-                    () -> new StandEntityType<CharmyGreenEntity>(CharmyGreenEntity::new, 0.65F, 1.9F)
+                    () -> new StandEntityType<>(CharmyGreenEntity::new, 0.7F, 2.1F)
                     .summonSound(InitSounds.EXAMPLE_STAND_SUMMON_SOUND)
                     .unsummonSound(InitSounds.EXAMPLE_STAND_UNSUMMON_SOUND))
             .withDefaultStandAttributes();

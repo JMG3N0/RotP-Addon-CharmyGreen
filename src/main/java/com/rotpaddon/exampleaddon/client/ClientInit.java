@@ -2,6 +2,7 @@ package com.rotpaddon.exampleaddon.client;
 
 import com.rotpaddon.exampleaddon.AddonMain;
 import com.rotpaddon.exampleaddon.client.render.CharmyGreenRenderer;
+import com.rotpaddon.exampleaddon.init.InitEntities;
 import com.rotpaddon.exampleaddon.init.InitStands;
 
 import net.minecraftforge.api.distmarker.Dist;

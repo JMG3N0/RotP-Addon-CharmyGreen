@@ -9,4 +9,8 @@ public class CharmyGreenEntity extends StandEntity {
     {
         super(type,world);
     }
+    @Override
+    protected void defineSynchedData(){
+        super.defineSynchedData();
+    }
 }
