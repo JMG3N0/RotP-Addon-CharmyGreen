@@ -16,18 +16,8 @@
 					"pivot": [0, 0, 0]
 				},
 				{
-					"name": "body",
-					"parent": "root",
-					"pivot": [0, 24, 0]
-				},
-				{
-					"name": "upperPart",
-					"parent": "body",
-					"pivot": [0, 12, 0]
-				},
-				{
 					"name": "head",
-					"parent": "upperPart",
+					"parent": "root",
 					"pivot": [0, 27.75, -1],
 					"cubes": [
 						{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [0, 0]},
@@ -83,6 +73,16 @@
 						{"origin": [-1.43927, 61.51345, -16.49611], "size": [2, 1.25, 2], "inflate": 0.1, "pivot": [-1.43927, 36.71345, -19.49611], "rotation": [-106.5014, 3.5008, 0], "uv": [68, 0]},
 						{"origin": [3.39982, 55.00682, -22.83348], "size": [2, 3.25, 2], "inflate": 0.1, "pivot": [0.89982, 30.00682, -23.83348], "rotation": [-94.9964, -1.9996, 0], "uv": [68, 0]}
 					]
+				},
+				{
+					"name": "body",
+					"parent": "root",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "upperPart",
+					"parent": "body",
+					"pivot": [0, 12, 0]
 				},
 				{
 					"name": "torso",

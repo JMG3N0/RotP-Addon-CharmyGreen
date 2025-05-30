@@ -7,6 +7,8 @@ import com.github.standobyte.jojo.action.stand.StandEntityHeavyAttack;
 import com.github.standobyte.jojo.action.stand.StandEntityLightAttack;
 import com.github.standobyte.jojo.action.stand.StandEntityMeleeBarrage;
 import com.github.standobyte.jojo.entity.stand.StandEntityType;
+import com.github.standobyte.jojo.entity.stand.StandPose;
+import com.github.standobyte.jojo.init.ModSounds;
 import com.github.standobyte.jojo.init.power.stand.EntityStandRegistryObject;
 import com.github.standobyte.jojo.init.power.stand.ModStandsInit;
 import com.github.standobyte.jojo.power.impl.stand.StandInstance.StandPart;
@@ -14,6 +16,9 @@ import com.github.standobyte.jojo.power.impl.stand.stats.StandStats;
 import com.github.standobyte.jojo.power.impl.stand.type.EntityStandType;
 import com.github.standobyte.jojo.power.impl.stand.type.StandType;
 import com.rotpaddon.exampleaddon.AddonMain;
+import com.rotpaddon.exampleaddon.action.CharmyGreenEmeraldSplash;
+import com.rotpaddon.exampleaddon.action.CharmyGreenEmeraldStarFinger;
+import com.rotpaddon.exampleaddon.action.CharmyGreenStarFinger;
 import com.rotpaddon.exampleaddon.entity.CharmyGreenEntity;
 
 import net.minecraftforge.fml.RegistryObject;
@@ -57,8 +62,25 @@ public class InitStands {
     
     public static final RegistryObject<StandEntityAction> CHARMY_GREEN_BLOCK = ACTIONS.register("charmy_green_block",
             () -> new StandEntityBlock());
-    
 
+    public static final RegistryObject<StandEntityAction> CHARMY_GREEN_EMERALD_SPLASH = ACTIONS.register("charmy_green_emerald_splash",
+            () -> new CharmyGreenEmeraldSplash(new StandEntityAction.Builder().standPerformDuration(20).standRecoveryTicks(40).staminaCostTick(8).standRecoveryTicks(20)
+                    .standPose(CharmyGreenEmeraldSplash.Emerald_Splash_Pose).resolveLevelToUnlock(1).isTrained().standOffsetFront().shout(ModSounds.KAKYOIN_EMERALD_SPLASH).standSound(ModSounds.HIEROPHANT_GREEN_EMERALD_SPLASH)
+                    .partsRequired(StandPart.ARMS)));
+
+    public static final RegistryObject<CharmyGreenStarFinger> CHARMY_GREEN_STAR_FINGER = ACTIONS.register("charmy_green_star_finger",
+            () -> new CharmyGreenStarFinger(new StandEntityAction.Builder().staminaCost(375).standPerformDuration(20).cooldown(20, 60)
+                    .ignoresPerformerStun().noResolveUnlock().isTrained()
+                    .standOffsetFront().standPose(CharmyGreenStarFinger.Star_Finger_Pose)
+                    .shout(ModSounds.JOTARO_STAR_FINGER).standSound(StandEntityAction.Phase.PERFORM, ModSounds.STAR_PLATINUM_STAR_FINGER)
+                    .partsRequired(StandPart.ARMS).shiftVariationOf(CHARMY_GREEN_EMERALD_SPLASH)));
+
+    public static final RegistryObject<CharmyGreenEmeraldStarFinger> CHARMY_GREEN_EMERALD_STAR_FINGER = ACTIONS.register("charmy_green_emerald_star_finger",
+            () -> new CharmyGreenEmeraldStarFinger(new StandEntityAction.Builder().staminaCostTick(25).standPerformDuration(15).cooldown(20,40)
+                    .ignoresPerformerStun().noResolveUnlock()
+                    .standOffsetFront().standPose(CharmyGreenStarFinger.Star_Finger_Pose)
+                    .shout(ModSounds.JOTARO_STAR_FINGER).standSound(StandEntityAction.Phase.PERFORM, ModSounds.STAR_PLATINUM_STAR_FINGER)
+                    .partsRequired(StandPart.ARMS)));
     
     
 
@@ -71,10 +93,12 @@ public class InitStands {
                     .storyPartName(ModStandsInit.PART_3_NAME)
                     .leftClickHotbar(
                             CHARMY_GREEN_PUNCH.get(),
-                            URYA_BARRAGE.get()
+                            URYA_BARRAGE.get(),
+                            CHARMY_GREEN_EMERALD_STAR_FINGER.get()
                             )
                     .rightClickHotbar(
-                            CHARMY_GREEN_BLOCK.get()
+                            CHARMY_GREEN_BLOCK.get(),
+                            CHARMY_GREEN_EMERALD_SPLASH.get()
                             )
                     .defaultStats(StandStats.class, new StandStats.Builder()
                             .tier(6)
@@ -89,7 +113,7 @@ public class InitStands {
                     .build(),
                     
                     InitEntities.ENTITIES,
-                    () -> new StandEntityType<>(CharmyGreenEntity::new, 0.7F, 2.1F)
+                    () -> new StandEntityType<>(CharmyGreenEntity::new, 0.7F, 1.9F)
                     .summonSound(InitSounds.EXAMPLE_STAND_SUMMON_SOUND)
                     .unsummonSound(InitSounds.EXAMPLE_STAND_UNSUMMON_SOUND))
             .withDefaultStandAttributes();
