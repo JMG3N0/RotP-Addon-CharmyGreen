@@ -18,6 +18,7 @@ import com.github.standobyte.jojo.power.impl.stand.type.StandType;
 import com.rotpaddon.exampleaddon.AddonMain;
 import com.rotpaddon.exampleaddon.action.CharmyGreenEmeraldSplash;
 import com.rotpaddon.exampleaddon.action.CharmyGreenEmeraldStarFinger;
+import com.rotpaddon.exampleaddon.action.CharmyGreenFinisher;
 import com.rotpaddon.exampleaddon.action.CharmyGreenStarFinger;
 import com.rotpaddon.exampleaddon.entity.CharmyGreenEntity;
 
@@ -48,15 +49,18 @@ public class InitStands {
             () -> new StandEntityMeleeBarrage(new StandEntityMeleeBarrage.Builder()
                     .barrageHitSound(InitSounds.EXAMPLE_STAND_PUNCH_BARRAGE)));
 
-    public static final RegistryObject<StandEntityHeavyAttack> FINISHER_PUNCH = ACTIONS.register("charmy_green_finisher",
-            () -> new StandEntityHeavyAttack(new StandEntityHeavyAttack.Builder() // TODO finisher ability
-                    .punchSound(InitSounds.EXAMPLE_STAND_PUNCH_HEAVY)
-                    .partsRequired(StandPart.ARMS)));
+    public static final RegistryObject<StandEntityHeavyAttack> CHARMY_GREEN_FINISHER = ACTIONS.register("charmy_green_finisher",
+            () -> new CharmyGreenFinisher(new StandEntityHeavyAttack.Builder()
+                    .resolveLevelToUnlock(1)
+                    .standPose(CharmyGreenFinisher.FINISHER_POSE)
+                    .punchSound(ModSounds.STAR_PLATINUM_PUNCH_HEAVY)
+                    .standSound(StandEntityAction.Phase.WINDUP, false, ModSounds.STAR_PLATINUM_ORA_LONG)
+                    .partsRequired(StandPart.LEGS)));
 
     public static final RegistryObject<StandEntityHeavyAttack> CHARMY_GREEN_HEAVY_PUNCH = ACTIONS.register("charmy_green_heavy_punch",
             () -> new StandEntityHeavyAttack(new StandEntityHeavyAttack.Builder()
                     .shiftVariationOf(CHARMY_GREEN_PUNCH).shiftVariationOf(URYA_BARRAGE)
-                    .setFinisherVariation(FINISHER_PUNCH)
+                    .setFinisherVariation(CHARMY_GREEN_FINISHER)
                     .punchSound(InitSounds.EXAMPLE_STAND_PUNCH_HEAVY)
                     .partsRequired(StandPart.ARMS)));
     
@@ -81,6 +85,8 @@ public class InitStands {
                     .standOffsetFront().standPose(CharmyGreenStarFinger.Star_Finger_Pose)
                     .shout(ModSounds.JOTARO_STAR_FINGER).standSound(StandEntityAction.Phase.PERFORM, ModSounds.STAR_PLATINUM_STAR_FINGER)
                     .partsRequired(StandPart.ARMS)));
+
+
     
     
 
