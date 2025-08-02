@@ -65,12 +65,7 @@ Addon for the mod Ripples of the Past adding a special The World, namely, Beyond
 [[dependencies.beyondtw]]
     modId="rotp_whitesnake"
     mandatory=true
-    versionRange="[BETA-1.0.9, BETA-1.1)"
+    versionRange="[BETA-1.1.1, BETA-2.0)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.beyondtw]]
-    modId="beyondtw"
-    mandatory=true
-    versionRange="[0.2.2,0.3)"
-    ordering="AFTER"
-    side="BOTH"
+

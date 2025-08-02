@@ -108,7 +108,7 @@ dependencies {
 
 	implementation fg.deobf("standobyte.jojo:JJBA-RipplesOfThePast:${main_mod_version}")
     implementation fg.deobf("maven.modrinth:ripples-of-the-past-killer-queen-addon:1.6.8")
-    implementation fg.deobf("maven.modrinth:rotp_whitesnake:BETA-1.0.9")
+    implementation fg.deobf("maven.modrinth:rotp_whitesnake:BETA-1.1.1")
 
     compileOnly 'team.unnamed:mocha:3.0.0'
 }
